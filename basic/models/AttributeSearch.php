@@ -18,7 +18,8 @@ class AttributeSearch extends Attribute
     public function rules()
     {
         return [
-            [['productId', 'AttrCatId', 'Value'], 'integer'],
+            [['productId', 'AttrCatId'], 'integer'],
+            [['Value'], 'safe'],
         ];
     }
 
@@ -53,8 +54,9 @@ class AttributeSearch extends Attribute
         $query->andFilterWhere([
             'productId' => $this->productId,
             'AttrCatId' => $this->AttrCatId,
-            'Value' => $this->Value,
         ]);
+
+        $query->andFilterWhere(['like', 'Value', $this->Value]);
 
         return $dataProvider;
     }

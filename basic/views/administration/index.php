@@ -1,9 +1,19 @@
 <?php
 /* @var $this yii\web\View */
-?>
-<h1>administration/index</h1>
+use yii\helpers\Html;
+use yii\grid\GridView;
 
-<p>
-    You may change the content of this page by modifying
-    the file <code><?= __FILE__; ?></code>.
-</p>
+$this->title = 'Admin Panel';
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="btn-group">
+        <?= Html::a('Attributes', ['attribute/index'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Attributes Categories', ['attribute-category/index'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Categories', ['category/index'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Comments', ['comment/index'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Customers', ['customer/index'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Orders', ['order/index'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Products', ['product/index'], ['class' => 'btn btn-success']) ?>
+</div>
+
+
