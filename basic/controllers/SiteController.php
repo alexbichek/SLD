@@ -5,6 +5,8 @@ namespace app\controllers;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use app\models\ProductSearch;
+use app\models\CategorySearch;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
@@ -49,7 +51,15 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $searchModel = new CategorySearch();
+        $categories = $searchModel->search(Yii::$app->request->queryParams);
+
+        $searchModel = new ProductSearch();
+        $products = $searchModel->search(Yii::$app->request->queryParams);
+        return $this->render('../site/index', [
+            'categories' => $categories,
+            'products' => $products,
+        ]);
     }
 
     public function actionLogin()

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "10d8d3b92d960bec820ae06a5e92ecc8",
+    "hash": "f5b7b46c75d54c1e6ee735d023f70588",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -310,6 +310,44 @@
                 "html"
             ],
             "time": "2013-11-30 08:25:19"
+        },
+        {
+            "name": "omnilight/yii2-shopping-cart",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/omnilight/yii2-shopping-cart.git",
+                "reference": "8dc238ad2b42a404191a2ebfa27a301df8e28c2e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/omnilight/yii2-shopping-cart/zipball/8dc238ad2b42a404191a2ebfa27a301df8e28c2e",
+                "reference": "8dc238ad2b42a404191a2ebfa27a301df8e28c2e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "yz\\shoppingcart\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Pavel Agalecky",
+                    "email": "pavel.agalecky@gmail.com"
+                }
+            ],
+            "description": "Yii2 extension that adds shopping cart functions",
+            "keywords": [
+                "shopping cart",
+                "yii"
+            ],
+            "time": "2014-12-12 12:58:24"
         },
         {
             "name": "swiftmailer/swiftmailer",

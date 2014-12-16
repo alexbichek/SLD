@@ -38,6 +38,10 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+        'cart' => [
+            'class' => 'yz\shoppingcart\ShoppingCart',
+            'cartId' => 'my_application_cart',
+        ],
         /*'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
