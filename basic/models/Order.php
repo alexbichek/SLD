@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "Order".
+ * This is the model class for table "{{%Order}}".
  *
  * @property integer $Id
  * @property integer $customerId
@@ -13,8 +13,8 @@ use Yii;
  * @property integer $quantity
  * @property string $dateTime
  *
- * @property Product $product
  * @property Customer $customer
+ * @property Product $product
  */
 class Order extends \yii\db\ActiveRecord
 {
@@ -23,7 +23,7 @@ class Order extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Order';
+        return '{{%Order}}';
     }
 
     /**
@@ -32,8 +32,8 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['customerId', 'productId', 'quantity'], 'required'],
-            [['customerId', 'productId', 'quantity'], 'integer'],
+            [['Id', 'customerId', 'productId', 'quantity'], 'required'],
+            [['Id', 'customerId', 'productId', 'quantity'], 'integer'],
             [['dateTime'], 'safe']
         ];
     }
@@ -55,16 +55,16 @@ class Order extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getProduct()
+    public function getCustomer()
     {
-        return $this->hasOne(Product::className(), ['productId' => 'productId']);
+        return $this->hasOne(Customer::className(), ['customerId' => 'customerId']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getCustomer()
+    public function getProduct()
     {
-        return $this->hasOne(Customer::className(), ['customerId' => 'customerId']);
+        return $this->hasOne(Product::className(), ['productId' => 'productId']);
     }
 }

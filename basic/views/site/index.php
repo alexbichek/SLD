@@ -18,13 +18,14 @@ $this->title = 'My Yii Application';
                         </a>
                     </h4>
                 </div>
-                <div id="<?= $model->categoryId; ?>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div id="<?= $model->categoryId; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="<?= $model->categoryId; ?>">
                     <div class="panel-body">
 
                         <div class="container">
                             <?php foreach ($products->models as $product){?>
+                                <?php $form = ActiveForm::begin()?>
                                 <?php if ($product->categoryId == $model->categoryId){?>
-                                        <div class="col-lg-3 bg-info col-lg-offset-1">
+                                        <div class="col-lg-3 bg-info" style="margin: 10px">
                                             <div class="col-lg-12 lead">
                                                 <?= $product->productName; ?>
                                             </div>
@@ -34,16 +35,14 @@ $this->title = 'My Yii Application';
                                             </div>
                                             <div class="col-lg-5 text-right">
                                                 <?= $product->price; ?> грн.
-                                                <div class="btn-group" data-toggle="buttons">
-                                                    <label class="btn btn-primary btn-sm">
-                                                        <input type="checkbox" value="<?= $product->productId; ?>" autocomplete="off"><span class="glyphicon glyphicon-shopping-cart"></span>
-                                                    </label>
-                                                </div>
+                                                <?php Html::submitButton('Submit', ['class' => 'btn btn-primary glyphicon glyphicon-shopping-cart'])?>
+<!--                                                <button id="cart" class="btn btn-success btn-sm" value="--><?//= $product->productId; ?><!--" ><span class="glyphicon glyphicon-shopping-cart"></span></button>-->
                                             </div>
                                         </div>
                                 <?php
                                     }
                                 ?>
+                                <?php ActiveForm::end()?>
                             <?php
                             }
                             ?>
@@ -58,3 +57,4 @@ $this->title = 'My Yii Application';
 
     </div>
 </div>
+
